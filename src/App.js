@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import TalkWithAI from './pages/chat/TalkWithAI';
+import RecipeGenerator from './pages/recipe/RecipeGenerator';
+import ImageGenerator from './pages/image/ImageGenerator';
 
 import './App.css';
 
@@ -29,9 +32,9 @@ function App() {
         Generate Images
       </button>
       <div>
-        {activeTab === 'ask-ai' && <h2>Talk with AI</h2>}
-        {activeTab === 'recipe-generator' && <h2>Generate Recipes</h2>}
-        {activeTab === 'image-generator' && <h2>Generate Images</h2>}
+        {activeTab === 'ask-ai' && <TalkWithAI/>}
+        {activeTab === 'recipe-generator' && <RecipeGenerator/>}
+        {activeTab === 'image-generator' && <ImageGenerator/>}
       </div>
     </div>
   );
