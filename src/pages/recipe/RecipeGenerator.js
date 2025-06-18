@@ -1,4 +1,5 @@
 import react, { useState } from "react";
+import ReactMarkdown from "react-markdown";
 import api from "../../services/api";
 
 function RecipeGenerator(){
@@ -53,7 +54,7 @@ function RecipeGenerator(){
                 Ask AI
             </button>
             <div className="output">
-                <p>{recipe}</p>
+                <ReactMarkdown>{recipe}</ReactMarkdown>
             </div>
         </div>    
     );
