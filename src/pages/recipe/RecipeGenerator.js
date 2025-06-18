@@ -51,7 +51,7 @@ function RecipeGenerator(){
             />
 
             <button onClick={createRecipe}>
-                Ask AI
+                Generate Recipe
             </button>
             <div className="output">
                 <ReactMarkdown>{recipe}</ReactMarkdown>
