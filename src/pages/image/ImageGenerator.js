@@ -1,11 +1,30 @@
 import react, { useState } from "react";
+import api from "../../services/api";
 
 function ImageGenerator(){
 
     const [prompt, setPrompt] = useState('')
+    const [quality, setQuality] = useState('hd')
+    const [n, setN] = useState('1')
+    const [height, setHeight] = useState('1024')
+    const [width, setWidth] = useState('1024')
     const [imageUrls, setImageUrls] = useState([])
 
-    const generateImages = async () => {};
+    const generateImages = async () => {
+        try {
+            const response = await  api.get(`generate-image`, {
+                params: {
+                    prompt, 
+                    quality
+                }
+            })
+            const data = await response.data;
+            console.log(data);
+            setImageUrls(data);
+        } catch (error) {
+            console.log('Error generating image: ', error)
+        }
+    };
 
     return (
         <div>

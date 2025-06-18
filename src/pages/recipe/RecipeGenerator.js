@@ -22,7 +22,7 @@ function RecipeGenerator(){
             console.log(data);
             setRecipe(data);
         } catch (error) {
-            console.log('Error generate recipe: ', error)
+            console.log('Error generating recipe: ', error)
         }
     };
 
