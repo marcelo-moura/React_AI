@@ -1,4 +1,5 @@
 import react, { useState } from "react";
+import api from "../../services/api";
 
 function AudioUploader(){
 
@@ -9,8 +10,22 @@ function AudioUploader(){
         setFile(e.target.files[0]);
     }
 
-    const transcribeAudio = () =>{
+    const transcribeAudio = async () => {
+        const formData = new FormData();
+        formData.append('file', file);
 
+        try {
+            const response = await api.post('transcribe', formData, {
+                headers: {
+                    'Content-Type' : 'multipart/form-data'
+                }
+            });
+            const data = await response.data;
+            console.log(data);
+            setTranscription(data);
+        } catch (error) {
+            console.log('Error transcribing audio: ', error)
+        }
     };
 
     return(
